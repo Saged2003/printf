@@ -49,13 +49,19 @@ int kind(char c, va_list args)
 {
 
 	int nona = 0, i = 0;
-	char *st, a;
+	char *st, a, arr[] = "(null)";
 
 	if (c == '%')
 		nona += _putchar('%');
 	else if (c == 's')
 	{
 		st = va_arg(args, char *);
+		if (!st)
+		{
+			while (arr[i])
+				nona += _putchar(arr[i]);
+			return (nona);
+		}
 		while (st[i])
 		{
 			nona += _putchar(st[i]);

@@ -49,7 +49,8 @@ int _printf(const char *format, ...)
 int kind(char c, va_list args)
 {
 
-	long int nona = 0, i = 0, j = 0;
+	int nona = 0, j = 0;
+	long int i = 0;
 	char *st, a, arr[] = "(null)", *in;
 
 	if (c == '%')

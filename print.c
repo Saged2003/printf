@@ -39,8 +39,9 @@ int _printf(const char *format, ...)
 	return (count);
 }
 /**
- * _printf - it's the base boooyy
- * @format: pointer to the input
+ * kind - it's the base boooyy
+ * @c: pointer to the input
+ * @args: args
  * Return: the size.
 */
 
@@ -67,7 +68,7 @@ int kind(char c, va_list args)
 			nona += _putchar(st[i]);
 			i++;
 		}
-		
+
 	}
 	else if (c == 'c')
 	{

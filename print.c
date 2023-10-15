@@ -12,8 +12,6 @@ int _printf(const char *format, ...)
 	va_list args;
 	int i = 0;
 	int count = 0;
-	char c;
-	char *s;
 
 	va_start(args, format);
 	while (format[i] != '\0')
@@ -33,7 +31,6 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
-
 /**
  * _printf - it's the base boooyy
  * @format: pointer to the input

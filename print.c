@@ -49,8 +49,8 @@ int _printf(const char *format, ...)
 int kind(char c, va_list args)
 {
 
-	int nona = 0, i = 0;
-	char *st, a, arr[] = "(null)";
+	int nona = 0, i = 0, j = 0;
+	char *st, a, arr[] = "(null)", *in;
 
 	if (c == '%')
 		nona += _putchar('%');
@@ -75,5 +75,35 @@ int kind(char c, va_list args)
 		a = va_arg(args, int);
 		nona += _putchar(a);
 	}
+	else if (c == 'i' || c == 'd')
+	{
+		i = va_arg(args, int);
+		if (i < 0)
+		{
+			_putchar('-');
+			i *= -1;
+		}
+		in = tost(i);
+		while (in[j])
+			j++;
+		nona += j;
+		j--;
+		for (; j >= 0; j--)
+			_putchar(in[j]);
+		free (in);
+	}
 	return (nona);
+}
+char *tost(int num)
+{
+	char *st = malloc(sizeof(char)* 20);
+	int i = 0;
+
+	while (num != 0)
+	{
+		st[i] = (num % 10 ) + 48;
+		i++;
+		num /= 10;
+	}
+	return (st);
 }

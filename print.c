@@ -10,7 +10,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i = 0;
+	int i = 0, re = 0;
 	int count = 0;
 
 	va_start(args, format);
@@ -18,8 +18,15 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
+			re = 0;
 			i++;
-			count += kind(format[i], args);
+			while (format[i] == ' ')
+			{
+				re++;
+				i++;
+			}
+			re += kind(format[i], args);
+			count += re;
 		}
 		else
 		{

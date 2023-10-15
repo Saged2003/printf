@@ -49,7 +49,7 @@ int _printf(const char *format, ...)
 int kind(char c, va_list args)
 {
 
-	int nona = 0, i = 0, j = 0;
+	long int nona = 0, i = 0, j = 0;
 	char *st, a, arr[] = "(null)", *in;
 
 	if (c == '%')
@@ -77,7 +77,7 @@ int kind(char c, va_list args)
 	}
 	else if (c == 'i' || c == 'd')
 	{
-		i = va_arg(args, int);
+		i = va_arg(args, long int);
 		if (i < 0)
 		{
 			_putchar('-');
@@ -94,7 +94,7 @@ int kind(char c, va_list args)
 	}
 	return (nona);
 }
-char *tost(int num)
+char *tost(long int num)
 {
 	char *st = malloc(sizeof(char)* 20);
 	int i = 0;

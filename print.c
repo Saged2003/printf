@@ -84,25 +84,17 @@ int kind(char c, va_list args)
 			_putchar('-');
 			i *= -1;
 		}
-		in = tost(i);
-		while (in[j])
-			j++;
-		nona += j;
-		j--;
-		for (; j >= 0; j--)
-			_putchar(in[j]);
-		free (in);
 	}
 	return (nona);
 }
 char *tost(long int num)
 {
-	char *st = malloc(sizeof(char)* 20);
+	char *st = malloc(sizeof(char) * 20);
 	int i = 0;
 
 	while (num != 0)
 	{
-		st[i] = (num % 10 ) + 48;
+		st[i] = (num % 10) + 48;
 		i++;
 		num /= 10;
 	}

@@ -84,6 +84,14 @@ int kind(char c, va_list args)
 			_putchar('-');
 			i *= -1;
 		}
+		in = tost(i);
+		while (in[j])
+		j++;
+		nona += j;
+		j--;
+		for (; j >= 0; j--)
+			_putchar(in[j]);
+		free (in);
 	}
 	return (nona);
 }
